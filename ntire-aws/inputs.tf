@@ -15,3 +15,14 @@ variable "vpc_subnets" {
     availability_zone = ["a", "b", "a", "b"]
   }
 }
+
+variable "route_subnets" {
+  type = object({
+    public_subnets  = list(string)
+    private_subnets = list(string)
+  })
+  default = {
+    public_subnets  = ["app1", "app2"]
+    private_subnets = ["db1", "db2"]
+  }
+}
